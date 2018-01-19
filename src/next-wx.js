@@ -10,8 +10,8 @@
         var options = nx.mix( inOptions, { jsApiList: inApiList } );
         return wx.config( options );
       },
-      ready: function ( inCallback ) {
-        return wx.ready(inCallback);
+      ready: function ( inCallback, inContext ) {
+        return wx.ready.call(inContext, inCallback);
       }
     }
   });
