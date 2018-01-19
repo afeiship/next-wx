@@ -12,6 +12,9 @@
       },
       ready: function ( inCallback, inContext ) {
         return wx.ready.call(inContext, inCallback);
+      },
+      error: function ( inCallback, inContext){
+        return wx.error.call(inContext, inCallback);
       }
     }
   });
