@@ -6,6 +6,7 @@
 
   var NxWx = nx.declare('nx.Wx', {
     statics: {
+      VERSION : '1.2.0',
       config: function ( inOptions, inApiList ) {
         var options = nx.mix( inOptions, { jsApiList: inApiList } );
         return wx.config( options );
