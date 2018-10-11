@@ -3,8 +3,7 @@
   var nx = global.nx || require('next-js-core2');
   var wx = (global.wx = global.wx);
   var UNKNOW = 'unknow';
-  var ERR_MSG =
-    'Require wx-jssdk: http://res.wx.qq.com/open/js/jweixin-1.2.0.js';
+  var ERR_MSG = 'Require wx-jssdk: http://res.wx.qq.com/open/js/jweixin-1.2.0.js';
 
   var NxWx = nx.declare('nx.Wx', {
     statics: {
