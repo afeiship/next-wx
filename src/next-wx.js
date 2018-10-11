@@ -3,22 +3,22 @@
   var nx = global.nx || require('next-js-core2');
   var wx = (global.wx = global.wx);
   var UNKNOW = 'unknow';
-  var ERR_MSG = 'Require wx-jssdk: http://res.wx.qq.com/open/js/jweixin-1.2.0.js';
+  var ERR_MSG =
+    'Require wx-jssdk: http://res.wx.qq.com/open/js/jweixin-1.2.0.js';
 
   var NxWx = nx.declare('nx.Wx', {
     statics: {
-      VERSION: '1.2.0',
       init: function() {
         if (wx && wx.ready) {
-          wx.ready(function(){
+          wx.ready(function() {
             global.__WEIXIN_READY__ = true;
             wx.getNetworkType({
               success: function(res) {
                 global.__NETWORK_TYPE__ = res.networkType;
               },
-              fail:function(){
+              fail: function() {
                 global.__NETWORK_TYPE__ = UNKNOW;
-              },
+              }
             });
           });
         } else {
@@ -34,8 +34,8 @@
       },
       error: function(inCallback, inContext) {
         return wx.error.call(inContext, inCallback);
-      },
-    },
+      }
+    }
   });
 
   if (typeof module !== 'undefined' && module.exports) {
