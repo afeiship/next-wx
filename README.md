@@ -1,6 +1,44 @@
 # next-wx
 > Basic wx sdk method.
 
+## documentation:
+
+| Member           | Description             | Default |
+|:-----------------|:------------------------|:--------|
+| __WEIXIN_READY__ | 微信Jssdk是否初始化完毕 | false   |
+| __NETWORK_TYPE__ | 网络环境                | wifi    |
+
+
+## usage:
+```js
+import NxWxShare from 'next-wx-share';
+import NxWxImage from 'next-wx-image';
+import NxWx from 'next-wx';
+import { SHARE, DEBUG, PAY, ADDRESS, IMAGE, LOCATION, MENU, WINDOW, QR_CODE, CARD } from 'next-wx-api';
+
+
+const JS_API_LIST = nx.concat([], DEBUG, SHARE);
+
+//Wechat.js
+export default class {
+
+  static init(inConfig) {
+    const config = nx.mix(inConfig, {debug: $config.WX_DEBUG});
+    NxWx.config(config, JS_API_LIST);
+  }
+
+  static share(inConfig) {
+    inConfig.imgUrl = $app.toThumbnail($app.toImgs(inConfig.images)[0], {width: 100});
+    return NxWxShare.share(SHARE, inConfig);
+  }
+
+  static preview(inIndex, inItems) {
+    NxWxImage.preview(inIndex, inItems);
+  }
+
+}
+```
+
 
 ## other resources:
 ```conf
