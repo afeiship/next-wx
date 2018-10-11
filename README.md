@@ -16,15 +16,14 @@ import NxWxImage from 'next-wx-image';
 import NxWx from 'next-wx';
 import { SHARE, DEBUG, PAY, ADDRESS, IMAGE, LOCATION, MENU, WINDOW, QR_CODE, CARD } from 'next-wx-api';
 
-
-const JS_API_LIST = nx.concat([], DEBUG, SHARE);
-
 //Wechat.js
 export default class {
 
   static init(inConfig) {
     const config = nx.mix(inConfig, {debug: $config.WX_DEBUG});
-    NxWx.config(config, JS_API_LIST);
+    NxWx.config(
+      config, nx.concat([], DEBUG, SHARE)
+    );
   }
 
   static share(inConfig) {
