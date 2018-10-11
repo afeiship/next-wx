@@ -3,8 +3,8 @@
 
 ## documentation:
 
-| Member           | Description             | Default |
-|:-----------------|:------------------------|:--------|
+| Global Member      | Description             | Default |
+|:-------------------|:------------------------|:--------|
 | `__WEIXIN_READY__` | 微信Jssdk是否初始化完毕 | false   |
 | `__NETWORK_TYPE__` | 网络环境                | wifi    |
 
