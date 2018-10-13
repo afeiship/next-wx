@@ -1,31 +1,55 @@
-# next-wx-image
-> Wechat api for image part.
+# next-wx
+> Basic wx sdk method.
 
+## documentation:
 
-## install:
-```bash
-npm install -S afeiship/next-wx-image --registry=https://registry.npm.taobao.org
-```
+| Global Member      | Description             | Default |
+|:-------------------|:------------------------|:--------|
+| `__WEIXIN_READY__` | 微信Jssdk是否初始化完毕 | false   |
+| `__NETWORK_TYPE__` | 网络环境                | wifi    |
+
 
 ## usage:
 ```js
+import NxWxShare from 'next-wx-share';
 import NxWxImage from 'next-wx-image';
+import NxWx from 'next-wx';
+import { SHARE, DEBUG, PAY, ADDRESS, IMAGE, LOCATION, MENU, WINDOW, QR_CODE, CARD } from 'next-wx-api';
 
-// choose:
-NxWxImage.choose(inOptions);
+//Wechat.js
+export default class {
 
-// preview:
-NxWxImage.preview(inIndex,inItems);
+  static init(inConfig) {
+    const config = nx.mix(inConfig, {debug: $config.WX_DEBUG});
+    NxWx.config(
+      config, nx.concat([], DEBUG, SHARE)
+    );
+  }
 
-// upload:
-NxWxImage.upload(inLocalId, inOptions);
+  static share(inConfig) {
+    inConfig.imgUrl = $app.toThumbnail($app.toImgs(inConfig.images)[0], {width: 100});
+    return NxWxShare.share(SHARE, inConfig);
+  }
 
-// uploads:
-NxWxImage.uploads(inLocalIds, inOptions);
+  static preview(inIndex, inItems) {
+    NxWxImage.preview(inIndex, inItems);
+  }
 
-// download:
-NxWxImage.download(inLocalIds, inOptions);
-
+}
 ```
-## todos
-- use __WEIXIN_READY___ instead of wx.ready
+
+
+## other resources:
+```conf
+next-wx
+next-wx-api
+next-wx-debug
+next-wx-share
+next-wx-pay
+next-wx-address
+next-wx-image
+next-wx-menu
+```
+
+## resources:
++ https://margox.cn/%E4%B8%A4%E4%B8%AA%E5%BE%AE%E4%BF%A1sdk%E7%9B%B8%E5%85%B3%E7%9A%84%E8%84%9A%E6%9C%AC.html
